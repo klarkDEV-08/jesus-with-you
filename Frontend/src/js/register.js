@@ -1,4 +1,6 @@
 const form = document.getElementById("registerForm");
+const toggle = document.getElementById("toggle-eye");
+const pass = document.getElementById("senha");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -32,5 +34,17 @@ form.addEventListener("submit", async (e) => {
 
   } catch (error) {
     console.error("Erro:", error);
+  }
+});
+
+toggle.addEventListener("click", () =>{
+  if(senha.type === "password"){
+    senha.type = "text";
+    toggle.classList.remove("fa-eye");
+    toggle.classList.add("fa-eye-slash");
+  } else {
+    senha.type = "password";
+    toggle.classList.remove("fa-eye-slash");
+    toggle.classList.add("fa-eye");
   }
 });
