@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JesuWithYou</title>
+    <link rel="stylesheet" href="/Frontend/src/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="icon" type="image/png" href="/Frontend/assets/imgs/JESUS.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="nav-bar">
+        <div class="nav-logo">
+            <h1 id="title-nav">Jesus With You</h1>
+        </div>
+
+        <div class="nav-links">
+            <p class="search">Bíblia</p>
+            <p class="search">Estudos</p>
+            <p class="search">Livros</p>
+        </div>
+
+        <div id="nav-userName">
+            <span id="user-name"></span>
+        </div>
+
+        <div class="nav-actions">
+            <form role="search">
+                <input type="search" id="search-in-app" placeholder="Pesquisar">
+                <button type="submit" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div id="content-menu">
+                <div class="central-menu" id="menu-trigger">
+                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div id="menu-dropdown" class="dropdown-content hidden">
+                    <div class="dropdown-item" id="theme-toggle">
+                        <i class="fa-solid fa-moon"></i>
+                        <p id="change-mode">Modo Claro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="versiculo-day">
+            <h3 id="title-day">Versículos do dia</h3>
+            <p id="versiculo"></p>
+            <p id="book"></p>
+        </div>
+
+        <div id="container-content">
+            <h1 id="givemore">Deus quer falar com você hoje!</h1>
+            <div id="itens-box">
+                <div class="box">
+                    <img src="/Frontend/assets/imgs/Gemini_Generated_Image_hd3j88hd3j88hd3j.png" alt="" id="box-img">
+                    <h3 class="title-box">Recursos bíblicos</h3>
+                    <p id="subtitlee-box">Explore conteúdos...</p>
+                </div>
+                <div class="box">
+                    <img id="box-img" src="/Frontend/assets/imgs/ChatGPT Image 28 de fev. de 2026, 09_05_58.png" alt="">
+                    <h3 class="title-box">Em breve....</h3>
+                    <p id="subtitlee-box">Em desenvolvimento</p>
+                </div>
+                <div class="box">
+                    <img id="box-img" src="/Frontend/assets/imgs/ChatGPT Image 28 de fev. de 2026, 09_05_58.png" alt="">
+                    <h3 class="title-box">Em breve....</h3>
+                    <p id="subtitlee-box">Em desenvolvimento</p>
+                </div>
+                <div class="box">
+                    <img id="box-img" src="/Frontend/assets/imgs/ChatGPT Image 28 de fev. de 2026, 09_05_58.png" alt="">
+                    <h3 class="title-box">Em breve....</h3>
+                    <p id="subtitlee-box">Em desenvolvimento</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="container-bottom">
+            <div id="books-bible">
+                <div class="antigo-testamento">
+                    <h1>Antigo Testamento</h1>
+                    <ul class="lista-bibliaAT">
+                        <li class="capitulos-AT" data-livro="gn">Gênesis</li>
+                        <li class="capitulos-AT" data-livro="ex">Êxodo</li>
+                        <li class="capitulos-AT" data-livro="lv">Levítico</li>
+                        <li class="capitulos-AT" data-livro="nm">Números</li>
+                        <li class="capitulos-AT" data-livro="dt">Deuteronômio</li>
+                        <li class="capitulos-AT" data-livro="js">Josué</li>
+                        <li class="capitulos-AT" data-livro="jz">Juízes</li>
+                        <li class="capitulos-AT" data-livro="rt">Rute</li>
+                        <li class="capitulos-AT" data-livro="1sm">1 Samuel</li>
+                        <li class="capitulos-AT" data-livro="2sm">2 Samuel</li>
+                        <li class="capitulos-AT" data-livro="1kgs">1 Reis</li>
+                        <li class="capitulos-AT" data-livro="2kgs">2 Reis</li>
+                        <li class="capitulos-AT" data-livro="1cr">1 Crônicas</li>
+                        <li class="capitulos-AT" data-livro="2cr">2 Crônicas</li>
+                        <li class="capitulos-AT" data-livro="">Esdras</li>
+                        <li class="capitulos-AT" data-livro="ne">Neemias</li>
+                        <li class="capitulos-AT" data-livro="et">Ester</li>
+                        <li class="capitulos-AT" data-livro="job">Jó</li>
+                        <li class="capitulos-AT" data-livro="sl">Salmos</li>
+                        <li class="capitulos-AT" data-livro="pv">Provérbios</li>
+                        <li class="capitulos-AT" data-livro="ec">Eclesiastes</li>
+                        <li class="capitulos-AT" data-livro="ct">Cânticos</li>
+                        <li class="capitulos-AT" data-livro="is">Isaías</li>
+                        <li class="capitulos-AT" data-livro="jr">Jeremias</li>
+                        <li class="capitulos-AT" data-livro="lm">Lamentações</li>
+                        <li class="capitulos-AT" data-livro="ez">Ezequiel</li>
+                        <li class="capitulos-AT" data-livro="dn">Daniel</li>
+                        <li class="capitulos-AT" data-livro="os">Oséias</li>
+                        <li class="capitulos-AT" data-livro="jl">Joel</li>
+                        <li class="capitulos-AT" data-livro="am">Amós</li>
+                        <li class="capitulos-AT" data-livro="ob">Obadias</li>
+                        <li class="capitulos-AT" data-livro="jn">Jonas</li>
+                        <li class="capitulos-AT" data-livro="mq">Miquéias</li>
+                        <li class="capitulos-AT" data-livro="na">Naum</li>
+                        <li class="capitulos-AT" data-livro="hc">Habacuque</li>
+                        <li class="capitulos-AT" data-livro="sf">Sofonias</li>
+                        <li class="capitulos-AT" data-livro="ag">Ageu</li>
+                        <li class="capitulos-AT" data-livro="zc">Zacarias</li>
+                        <li class="capitulos-AT" data-livro="ml">Malaquias</li>
+                    </ul>
+                </div>
+                <div class="novo-testamento-section">
+                    <h1 id="novo-testamento">Novo Testamento</h1>
+                    <ul class="lista-bibliaNT">
+                        <li id="capitulos-NV" data-livro="mt">Mateus</li>
+                        <li id="capitulos-NV" data-livro="mc">Marcos</li>
+                        <li id="capitulos-NV" data-livro="lc">Lucas</li>
+                        <li id="capitulos-NV" data-livro="jo">João</li>
+                        <li id="capitulos-NV" data-livro="act">Atos</li>
+                        <li id="capitulos-NV" data-livro="rm">Romanos</li>
+                        <li id="capitulos-NV" data-livro="1co">1 Coríntios</li>
+                        <li id="capitulos-NV" data-livro="2co">2 Coríntios</li>
+                        <li id="capitulos-NV" data-livro="gl">Gálatas</li>
+                        <li id="capitulos-NV" data-livro="ef">Efésios</li>
+                        <li id="capitulos-NV" data-livro="fp">Filipenses</li>
+                        <li id="capitulos-NV" data-livro="cl">Colossenses</li>
+                        <li id="capitulos-NV" data-livro="1ts">1 Tessalonicenses</li>
+                        <li id="capitulos-NV" data-livro="2ts">2 Tessalonicenses</li>
+                        <li id="capitulos-NV" data-livro="1tm">1 Timóteo</li>
+                        <li id="capitulos-NV" data-livro="2tm">2 Timóteo</li>
+                        <li id="capitulos-NV" data-livro="tt">Tito</li>
+                        <li id="capitulos-NV" data-livro="fm">Filemon</li>
+                        <li id="capitulos-NV" data-livro="hb">Hebreus</li>
+                        <li id="capitulos-NV" data-livro="tg">Tiago</li>
+                        <li id="capitulos-NV" data-livro="1pe">1 Pedro</li>
+                        <li id="capitulos-NV" data-livro="2pe">2 Pedro</li>
+                        <li id="capitulos-NV" data-livro="1jo">1 João</li>
+                        <li id="capitulos-NV" data-livro="2jo">2 João</li>
+                        <li id="capitulos-NV" data-livro="3jo">3 João</li>
+                        <li id="capitulos-NV" data-livro="jd">Judas</li>
+                        <li id="capitulos-NV" data-livro="ap">Apocalipse</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="end-content">
+                <h1 class="title-end">Nos siga nas redes sociais, <br> Para mais conteúdos.</h1>
+                <i id="instagram" class="fa-brands fa-instagram"></i>
+                <i id="tiktok" class="fa-brands fa-tiktok"></i>
+                <i id="youtube" class="fa-brands fa-youtube"></i>
+            </div>
+            <p>&copy; 2026 Breno Diogo. Todos os direitos reservados.</p>
+        </div>
+    </div>
+    <script src="/Frontend/src/js/script.js"></script>
+</body>
+</html>
