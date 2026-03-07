@@ -332,3 +332,12 @@ body {
     cursor: pointer;
     color: var(--text-accent);
 }
+
+#logout-btn{
+    background-color: #d4af37;
+    border: none;
+    height: 30px;
+    width: 80%;
+    border-radius: 10px;
+    margin:10px
+}
