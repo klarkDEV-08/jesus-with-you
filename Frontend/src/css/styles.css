@@ -334,10 +334,12 @@ body {
 }
 
 #logout-btn{
-    background-color: #d4af37;
+    background-color: var(--text-accent);
     border: none;
     height: 30px;
     width: 80%;
     border-radius: 10px;
-    margin:10px
+    margin:10px;
+    cursor: pointer;
+    color: var(--text-primary);
 }
