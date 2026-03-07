@@ -1,4 +1,4 @@
-// MENU E TEMA (igual antes)
+
 const menuTrigger = document.getElementById('menu-trigger');
 const dropdown = document.getElementById('menu-dropdown');
 const themeBtn = document.getElementById('theme-toggle');
@@ -6,6 +6,7 @@ const textBtn = document.getElementById('change-mode');
 const instagram = document.getElementById('instagram');
 const tikTok = document.getElementById('tiktok');
 const youtube = document.getElementById('youtube');
+const logoutBtn = document.getElementById("logout-btn");
 
 
 menuTrigger.addEventListener('click', (e) => {
@@ -31,7 +32,6 @@ themeBtn.addEventListener('click', () => {
     }
 });
 
-// VERSÍCULO DO DIA (só isso!)
 async function carregarVersiculo() {
     try {
         const resposta = await fetch('http://localhost:3000/versiculo');
@@ -107,4 +107,15 @@ if(user){
     if(userName){
         userName.innerText = `Olá, ${user.nome} 👋`;
     }
+}
+
+if(!user) {
+    window.location.href = "login.html";
+}
+
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("user");
+        window.location.href = "login.html";
+    });
 }

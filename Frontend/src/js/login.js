@@ -2,7 +2,6 @@ const toggle = document.getElementById('toggle-eye');
 const pass = document.getElementById('senha');
 const form = document.getElementById('loginForm');
 
-// mostrar ou esconder senha
 toggle.addEventListener('click', () => {
     if (pass.type === 'password') {
         pass.type = 'text';
@@ -15,7 +14,6 @@ toggle.addEventListener('click', () => {
     }
 });
 
-// quando enviar o formulário
 form.addEventListener('submit', async (e) => {
 
     e.preventDefault();
