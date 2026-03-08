@@ -1,4 +1,5 @@
 const user = JSON.parse(localStorage.getItem("user"));
+const back = document.getElementById("btn-back");
 
 if (!user) {
     window.location.href = "login.html";
@@ -30,3 +31,7 @@ async function carregarFavoritos(){
 }
 
 carregarFavoritos();
+
+back.addEventListener("click", () =>{
+    window.location.href = "index.html"
+});
