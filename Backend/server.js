@@ -136,6 +136,25 @@ app.post("/favorite", (req, res) => {
     });
 });
 
+app.get("/favorites/:userId", (req, res) => {
+    const userId = req.params.userId;
+
+    const sql = `
+        SELECT * FROM favorites
+        WHERE user_id = ?
+        ORDER BY id DESC
+    `;
+
+    db.query(sql, [userId], (err, results) => {
+        if (err) {
+            return res.status(500).json(err);
+        }
+
+        res.json(results);
+
+    });
+});
+
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`🚀 http://localhost:${PORT}`);
