@@ -1,4 +1,4 @@
-btnBack = document.querySelector('btn-voltar');
+btnBack = document.querySelector('.btn-voltar');
 const urlParams = new URLSearchParams(window.location.search);
 let livroAtual = urlParams.get('livro') || 'gn';
 let capituloAtual = parseInt(urlParams.get('cap')) || 1;
@@ -6,7 +6,7 @@ let capituloAtual = parseInt(urlParams.get('cap')) || 1;
 document.addEventListener('DOMContentLoaded', () => {
     const btnBack = document.querySelector('.btn-voltar');
     
-    // Verificamos se ele realmente existe antes de usar
+
     if (btnBack) {
         btnBack.addEventListener('click', () => {
             window.location.href = "index.html";
@@ -22,26 +22,62 @@ async function carregarCapitulo() {
     const numCap = document.getElementById('num-cap');
 
     try {
-        // Dentro da função carregarCapitulo()
         const response = await fetch(`http://localhost:3000/api/capitulo/${livroAtual}/${capituloAtual}`);
         const data = await response.json();
 
-        console.log("Dados recebidos da API:", data); // Isso vai nos mostrar tudo no Console (F12)
+        console.log("Dados recebidos da API:", data);
 
         titulo.innerText = `${data.book.name} ${data.chapter.number}`;
         numCap.innerText = data.chapter.number;
 
-        // Tente mudar 'versos' para 'verses' aqui:
         lista.innerHTML = data.verses.map(v => `
-            <p class="versiculo">
-                <span class="v-num">${v.number}</span> ${v.text}
-            </p>
+            <div class="versiculo" onclick="abrirMenuVersiculo(event, ${v.number})">
+
+                <p>
+                    <span class="v-num">${v.number}</span> ${v.text}
+                </p>
+
+                <div class="menu-versiculo" id="menu-${v.number}">
+                    <button onclick="event.stopPropagation(); favoriteVerse('${data.book.name}', ${data.chapter.number}, ${v.number})">
+                        ❤️ Favoritar
+                    </button>
+                </div>
+
+            </div>
         `).join('');
     } catch (error) {
         titulo.innerHTML = "Erro ao carregar";
         lista.innerHTML = "<p>Não foi possível encontrar este capítulo.</p>"
     }
 }
+
+
+let menuAberto = null;
+
+function abrirMenuVersiculo(event, verse){
+
+    event.stopPropagation();
+
+    const menu = document.getElementById(`menu-${verse}`);
+
+    if(menuAberto && menuAberto !== menu){
+        menuAberto.classList.remove("menu-show");
+    }
+
+    menu.classList.toggle("menu-show");
+
+    menuAberto = menu.classList.contains("menu-show") ? menu : null;
+
+}
+
+document.addEventListener("click", () => {
+
+    if(menuAberto){
+        menuAberto.classList.remove("menu-show");
+        menuAberto = null;
+    }
+
+});
 
 function mudarCapitulo(direcao) {
     let novoCapitulo = capituloAtual  + direcao;
@@ -64,4 +100,28 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 if (!user) {
     window.location.href = "login.html";
+}
+
+function favoriteVerse(book, chapter, verse){
+    fetch("http://localhost:3000/favorite", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            userId: user.id,
+            book: book,
+            chapter: chapter,
+            verse: verse
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        alert("Versículo salvo nos favoritos ❤️");
+
+    });
 }

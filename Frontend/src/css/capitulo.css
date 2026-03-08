@@ -116,3 +116,59 @@
     #versiculos-list { padding: 20px; }
     .capitulo-nav { flex-direction: column; gap: 10px; }
 }
+
+.versiculo{
+    position:relative;
+    padding:10px;
+    cursor:pointer;
+}
+
+.menu-versiculo button{
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.menu-versiculo button:hover{
+    color:red;
+}
+
+.versiculo{
+    position:relative;
+    padding:10px;
+    cursor:pointer;
+}
+
+.menu-versiculo{
+    position:absolute;
+    right:10px;
+    top:35px;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:6px;
+    z-index:10;
+    opacity:0;
+    transform:scale(0.9);
+    pointer-events:none;
+
+    transition:all 0.2s ease;
+}
+
+.menu-show{
+    opacity:1;
+    transform:scale(1);
+    pointer-events:auto;
+}
+
+.menu-versiculo button{
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.menu-versiculo button:hover{
+    color:red;
+}

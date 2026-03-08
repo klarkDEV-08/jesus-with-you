@@ -119,6 +119,22 @@ app.post("/login", (req, res) => {
     });
 });
 
+app.post("/favorite", (req, res) => {
+    const { userId, book, chapter, verse} = req.body;
+
+    const sql = `
+        INSERT INTO favorites (user_id, book, chapter, verse)
+        VALUES (?, ?, ?, ?)
+    `;
+
+    db.query(sql, [userId, book, chapter, verse], (err, result) => {
+        if (err) {
+            return res.status(500).json({ error: err});
+        }
+
+        res.json({ message: "Versículo favoritado"});
+    });
+});
 
 const PORT = 3000;
 app.listen(PORT, () => {
