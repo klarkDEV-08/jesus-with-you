@@ -343,3 +343,24 @@ body {
     cursor: pointer;
     color: var(--text-primary);
 }
+
+
+#btn-favorites {
+    cursor: pointer;
+    background-color: var(--text-accent);
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    width: 80%;
+    margin: 0 0 5px 11px;
+    color: var(--text-primary);
+}
+
+#btn-back {
+    background-color: var(--text-accent);
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    color: var(--text-primary);
+    cursor: pointer;
+}

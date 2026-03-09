@@ -7,6 +7,7 @@ const instagram = document.getElementById('instagram');
 const tikTok = document.getElementById('tiktok');
 const youtube = document.getElementById('youtube');
 const logoutBtn = document.getElementById("logout-btn");
+const favoritesBtn = document.getElementById("btn-favorites");
 
 
 menuTrigger.addEventListener('click', (e) => {
@@ -119,3 +120,7 @@ if (logoutBtn) {
         window.location.href = "login.html";
     });
 }
+
+favoritesBtn.addEventListener("click", () => {
+    window.location.href = "favorites.html";
+});
