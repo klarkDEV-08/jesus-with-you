@@ -19,7 +19,7 @@ async function carregarFavoritos(){
     }
 
     lista.innerHTML = favoritos.map(f => `
-        <div class="favorito-item">
+        <div class="favorito-item" onclick="buscarTextoVersiculo('${f.book}', ${f.chapter}, ${f.verse})">
 
             <p>
             📖 <strong>${f.book} ${f.chapter}:${f.verse}</strong>
@@ -30,7 +30,25 @@ async function carregarFavoritos(){
 
 }
 
+async function buscarTextoVersiculo(book, chapter, verse) {
+    try {
+        const response = await fetch (`/api/capitulo/${book}/${chapter}`);
+        const dados = await  response.json();
+
+        const versiculoEncontrado = dados.verses.find(v => v.number == verse);
+
+        if (versiculoEncontrado) {
+            exibirNaTela(book, chapter, number.verse, versiculoEncontrado.text);
+        } else {
+            alert("Versículo não encontrado.");
+        }
+    } catch (erro) {
+        console.error("Erro ao buscar:", erro);
+    }
+}
+
 carregarFavoritos();
+//buscarTextoVersiculo();
 
 back.addEventListener("click", () =>{
     window.location.href = "index.html"
