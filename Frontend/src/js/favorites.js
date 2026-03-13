@@ -1,5 +1,29 @@
 const user = JSON.parse(localStorage.getItem("user"));
 const back = document.getElementById("btn-back");
+const modal = document.getElementById("modalVersiculo");
+const modalTitulo = document.getElementById("modal-titulo");
+const modalTexto = document.getElementById("modal-texto");
+const btnFechar = document.querySelector(".fechar-modal");
+// Adicione isso no topo do seu favorites.js
+const dicionarioLivros = {
+    "Gênesis": "gn", "Êxodo": "ex", "Levítico": "lv", "Números": "nm",
+    "Deuteronômio": "dt", "Josué": "js", "Juízes": "jz", "Rute": "rt",
+    "1 Samuel": "1sm", "2 Samuel": "2sm", "1 Reis": "1kgs", "2 Reis": "2kgs",
+    "1 Crônicas": "1cr", "2 Crônicas": "2cr", "Esdras": "ezr", "Neemias": "ne",
+    "Ester": "et", "Jó": "job", "Salmos": "sl", "Provérbios": "pv",
+    "Eclesiastes": "ec", "Cânticos": "ct", "Isaías": "is", "Jeremias": "jr",
+    "Lamentações": "lm", "Ezequiel": "ez", "Daniel": "dn", "Oséias": "os",
+    "Joel": "jl", "Amós": "am", "Obadias": "ob", "Jonas": "jn",
+    "Miquéias": "mq", "Naum": "na", "Habacuque": "hc", "Sofonias": "sf",
+    "Ageu": "ag", "Zacarias": "zc", "Malaquias": "ml", "Mateus": "mt",
+    "Marcos": "mc", "Lucas": "lc", "João": "jo", "Atos": "act",
+    "Romanos": "rm", "1 Coríntios": "1co", "2 Coríntios": "2co", "Gálatas": "gl",
+    "Efésios": "ef", "Filipenses": "fp", "Colossenses": "cl", "1 Tessalonicenses": "1ts",
+    "2 Tessalonicenses": "2ts", "1 Timóteo": "1tm", "2 Timóteo": "2tm", "Tito": "tt",
+    "Filemon": "fm", "Hebreus": "hb", "Tiago": "tg", "1 Pedro": "1pe",
+    "2 Pedro": "2pe", "1 João": "1jo", "2 João": "2jo", "3 João": "3jo",
+    "Judas": "jd", "Apocalipse": "ap"
+};
 
 if (!user) {
     window.location.href = "login.html";
@@ -31,24 +55,40 @@ async function carregarFavoritos(){
 }
 
 async function buscarTextoVersiculo(book, chapter, verse) {
+    const bookCodigo = dicionarioLivros[book] || book.toLowerCase().trim();
+
     try {
-        const response = await fetch (`/api/capitulo/${book}/${chapter}`);
-        const dados = await  response.json();
+        console.log(`Buscando: ${bookCodigo} ${chapter}:${verse}`);
 
-        const versiculoEncontrado = dados.verses.find(v => v.number == verse);
+        const response = await fetch(`http://localhost:3000/api/capitulo/${bookCodigo}/${chapter}`);
+        
+        if (!response.ok) throw new Error("Erro na resposta da API");
 
-        if (versiculoEncontrado) {
-            exibirNaTela(book, chapter, number.verse, versiculoEncontrado.text);
-        } else {
-            alert("Versículo não encontrado.");
+        const dados = await response.json();
+
+        if (dados && dados.verses) {
+            const versiculoEncontrado = dados.verses.find(v => v.number == verse);
+
+            if (versiculoEncontrado) {
+                modalTitulo.innerText = `${book} ${chapter}:${verse}`;
+                modalTexto.innerText = versiculoEncontrado.text;
+                modal.style.display = "block";
+            } else {
+                alert("Versículo não encontrado.");
+            }
         }
     } catch (erro) {
-        console.error("Erro ao buscar:", erro);
+        console.error("Erro:", erro);
+        alert("Não foi possível carregar o versículo. Verifique se o servidor está rodando.");
     }
 }
 
+btnFechar.onclick = () => modal.style.display = "none";
+window.onclick = (event) => {
+    if (event.target == modal) modal.style.display = "none";
+}
+
 carregarFavoritos();
-//buscarTextoVersiculo();
 
 back.addEventListener("click", () =>{
     window.location.href = "index.html"
