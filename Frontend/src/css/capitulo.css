@@ -182,7 +182,7 @@
 }
 
 .menu-versiculo button:hover {
-    color: red;
+    color: var(--bg-primary); 
 }
 
 .modal-selector {

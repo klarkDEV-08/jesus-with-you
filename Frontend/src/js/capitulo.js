@@ -39,7 +39,7 @@ async function carregarCapitulo() {
 
                 <div class="menu-versiculo" id="menu-${v.number}">
                     <button onclick="event.stopPropagation(); favoriteVerse('${data.book.name}', ${data.chapter.number}, ${v.number})">
-                        ❤️ Favoritar
+                        <i class="fa-solid fa-heart"></i> Favoritar
                     </button>
                 </div>
 
