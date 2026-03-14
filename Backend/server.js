@@ -155,6 +155,19 @@ app.get("/favorites/:userId", (req, res) => {
     });
 });
 
+app.get('/api/livro-info/:livro', async (req, res) => {
+    const {livro} = req.params;
+    try {
+        const response = await fetch(`https://www.abibliadigital.com.br/api/books/${livro}`, {
+            headers: { 'Authorization': `Bearer ${token}`}
+        });
+        const dados = await response.json();
+        res.json(dados); 
+    } catch (erro) {
+        res.status(500).json({ error: 'Erro ao buscar info do livro'});
+    }
+});
+
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`🚀 http://localhost:${PORT}`);

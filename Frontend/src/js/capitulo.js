@@ -125,3 +125,52 @@ function favoriteVerse(book, chapter, verse){
 
     });
 }
+
+window.abrirSeletorCapitulos = async function() {
+    const modal = document.getElementById('modal-capitulos');
+    const grid = document.getElementById('grid-capitulos');
+    
+    if (!modal) {
+        console.error("Modal não encontrado! Verifique se colou o HTML do modal.");
+        return;
+    }
+
+    modal.style.display = "flex";
+    grid.innerHTML = "Carregando...";
+
+    try {
+        const response = await fetch(`http://localhost:3000/api/livro-info/${livroAtual}`);
+        const livroInfo = await response.json();
+        
+        grid.innerHTML = ""; 
+        
+        for (let i = 1; i <= livroInfo.chapters; i++) {
+            const btn = document.createElement('button');
+            btn.className = "btn-cap-select";
+            btn.innerText = i;
+            if(i === capituloAtual) btn.classList.add('active');
+            
+            btn.onclick = () => {
+                capituloAtual = i;
+                const novaUrl = `?livro=${livroAtual}&cap=${capituloAtual}`;
+                window.history.pushState({}, '', novaUrl);
+                carregarCapitulo();
+                fecharModal();
+            };
+            grid.appendChild(btn);
+        }
+    } catch (error) {
+        grid.innerHTML = "Erro ao carregar capítulos.";
+    }
+}
+
+window.fecharModal = function() {
+    const modal = document.getElementById('modal-capitulos');
+    if(modal) modal.style.display = "none";
+}
+
+
+window.abrirSeletorCapitulos = abrirSeletorCapitulos;
+window.fecharModal = fecharModal;
+
+console.log("JS carregado e funções exportadas!");

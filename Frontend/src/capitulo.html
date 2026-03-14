@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/Frontend/src/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
     <link rel="stylesheet" href="/Frontend/src/css/capitulo.css">
+    <link rel="icon" type="image/png" href="/Frontend/assets/imgs/JESUS.png">
+
 </head>
 <body>
     <div class="capitulo-container">
@@ -18,19 +20,29 @@
         </div>
         
         <div id="versiculos-list">
-            <p>Carregando versículos...</p><button id="favorite-btn">❤️</button>
+            <p>Carregando versículos...</p>
         </div>
         
         <div class="capitulo-nav">
             <button class="nav-btn" onclick="mudarCapitulo(-1)">
                 <i class="fa-solid fa-chevron-left"></i> Anterior
             </button>
-            <button class="nav-btn active" id="cap-atual">
+            <button class="nav-btn active" id="cap-atual" onclick="abrirSeletorCapitulos()">
                 Cap. <span id="num-cap">1</span>
             </button>
             <button class="nav-btn" onclick="mudarCapitulo(1)">
                 Próximo <i class="fa-solid fa-chevron-right"></i>
             </button>
+        </div>
+    </div>
+
+    <div id="modal-capitulos" class="modal-selector" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Escolha o Capítulo</h3>
+                <span class="close-modal" onclick="fecharModal()">&times;</span>
+            </div>
+            <div id="grid-capitulos" class="capitulos-grid"></div>
         </div>
     </div>
 
