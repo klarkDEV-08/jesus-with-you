@@ -7,6 +7,8 @@ const themeBtn = document.getElementById('theme-toggle');
 const menuTrigger = document.getElementById('menu-trigger');
 const dropdown = document.getElementById('menu-dropdown');
 const backHome = document.getElementById('btn-back-home');
+const textBtn = document.getElementById('change-mode');
+
 
 const dicionarioLivros = {
     "Gênesis": "gn", "Êxodo": "ex", "Levítico": "lv", "Números": "nm",
@@ -120,6 +122,6 @@ window.onclick = (event) => {
 
 carregarFavoritos();
 
-back.addEventListener("click", () =>{
+backHome.addEventListener("click", () =>{
     window.location.href = "index.html"
 });

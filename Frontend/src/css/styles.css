@@ -84,12 +84,12 @@ body {
 }
 
 #search-button {
-    background-color: var(--text-accent);
+    background-color: transparent;
     border: none;
     border-radius: 5px;
     font-size: 15px;
     width: 25px;
-    color: white;
+    color: var(--text-primary);
     cursor: pointer;
 }
 .search-form button {
@@ -334,7 +334,7 @@ body {
 }
 
 #logout-btn{
-    background-color: var(--text-accent);
+    background-color: var(--bg-primary);
     border: none;
     height: 30px;
     width: 80%;
@@ -344,6 +344,10 @@ body {
     color: var(--text-primary);
 }
 
+#logout-btn :hover {
+    background-color: var(--text-accent);
+    color: var(--text-primary);
+}
 
 /*Favorites.html*/
 
@@ -351,7 +355,7 @@ body {
 
 #btn-favorites {
     cursor: pointer;
-    background-color: var(--text-accent);
+    background-color: var(--bg-primary);
     border: none;
     border-radius: 10px;
     height: 30px;
@@ -409,8 +413,8 @@ body {
     margin: 0 0 5px 10px;
     border-radius: 10px;
     border: none;
-    background-color: var(--text-accent);
-    color: white;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
 }
 
 #favoritos-list {

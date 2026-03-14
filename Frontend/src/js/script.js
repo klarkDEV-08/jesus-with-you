@@ -8,7 +8,15 @@ const tikTok = document.getElementById('tiktok');
 const youtube = document.getElementById('youtube');
 const logoutBtn = document.getElementById("logout-btn");
 const favoritesBtn = document.getElementById("btn-favorites");
+const bible = document.getElementById("search-bible");
+const destinyBible = document.getElementById("books-bible");
 
+bible.addEventListener("click", () => {
+    window.scrollTo({
+        top: destinyBible.offsetTop - 50,
+        behavior: 'smooth'
+    });
+});
 
 menuTrigger.addEventListener('click', (e) => {
     e.stopPropagation();
