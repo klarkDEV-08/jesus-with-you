@@ -4,8 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentos</title>
+    <link rel="stylesheet" href="/Frontend/src/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="icon" type="image/png" href="/Frontend/assets/imgs/JESUS.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="nav-bar">
+        <div class="nav-logo">
+            <h1 id="title-nav">Jesus With You</h1>
+        </div>
+
+        <div class="nav-links">
+            <p id="search-bible" class="search">Bíblia</p>
+            <p class="search">Estudos</p>
+            <p class="search">Livros</p>
+        </div>
+
+        <div id="nav-userName">
+            <span id="user-name"></span>
+        </div>
+
+        <div class="nav-actions">
+            <form role="search">
+                <input type="search" id="search-in-app" placeholder="Pesquisar">
+                <button type="submit" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div id="content-menu">
+                <div class="central-menu" id="menu-trigger">
+                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div id="menu-dropdown" class="dropdown-content hidden">
+                    <div class="dropdown-item" id="theme-toggle">
+                        <i class="fa-solid fa-moon"></i>
+                        <p id="change-mode">Modo Claro</p>
+                    </div>
+                    <button id="logout-btn">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                    <button id="btn-favorites">❤ Meus Favoritos</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <a href="/Frontend/docs" download="Brown And Beige Illustrated Playful Jesus Sermon Presentation.pdf">baixe aqui</a>
 </body>
 </html>

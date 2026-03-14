@@ -10,6 +10,11 @@ const logoutBtn = document.getElementById("logout-btn");
 const favoritesBtn = document.getElementById("btn-favorites");
 const bible = document.getElementById("search-bible");
 const destinyBible = document.getElementById("books-bible");
+const boxContent = document.getElementById("box-content");
+
+boxContent.addEventListener('click', () => {
+    window.location.href = "document.html";
+});
 
 bible.addEventListener("click", () => {
     window.scrollTo({
