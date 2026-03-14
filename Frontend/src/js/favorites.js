@@ -1,10 +1,13 @@
 const user = JSON.parse(localStorage.getItem("user"));
-const back = document.getElementById("btn-back");
 const modal = document.getElementById("modalVersiculo");
 const modalTitulo = document.getElementById("modal-titulo");
 const modalTexto = document.getElementById("modal-texto");
 const btnFechar = document.querySelector(".fechar-modal");
-// Adicione isso no topo do seu favorites.js
+const themeBtn = document.getElementById('theme-toggle');
+const menuTrigger = document.getElementById('menu-trigger');
+const dropdown = document.getElementById('menu-dropdown');
+const backHome = document.getElementById('btn-back-home');
+
 const dicionarioLivros = {
     "Gênesis": "gn", "Êxodo": "ex", "Levítico": "lv", "Números": "nm",
     "Deuteronômio": "dt", "Josué": "js", "Juízes": "jz", "Rute": "rt",
@@ -24,6 +27,33 @@ const dicionarioLivros = {
     "2 Pedro": "2pe", "1 João": "1jo", "2 João": "2jo", "3 João": "3jo",
     "Judas": "jd", "Apocalipse": "ap"
 };
+
+menuTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('hidden');
+});
+
+window.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && e.target !== menuTrigger) {
+        dropdown.classList.add('hidden');
+    }
+});
+
+themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const icon = themeBtn.querySelector('i');
+    if (document.body.classList.contains('light-mode')) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+        textBtn.innerText = 'Modo Escuro';
+    } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+        textBtn.innerText = 'Modo Claro';
+    }
+});
+
+backHome.addEventListener('click', () => {
+    window.location.href = "index.html";
+});
 
 if (!user) {
     window.location.href = "login.html";
@@ -46,7 +76,7 @@ async function carregarFavoritos(){
         <div class="favorito-item" onclick="buscarTextoVersiculo('${f.book}', ${f.chapter}, ${f.verse})">
 
             <p>
-            📖 <strong>${f.book} ${f.chapter}:${f.verse}</strong>
+             <i class="fa-solid fa-cross"></i> <strong>${f.book} ${f.chapter}:${f.verse}</strong>
             </p>
 
         </div>

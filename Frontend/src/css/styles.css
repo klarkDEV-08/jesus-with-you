@@ -345,6 +345,10 @@ body {
 }
 
 
+/*Favorites.html*/
+
+
+
 #btn-favorites {
     cursor: pointer;
     background-color: var(--text-accent);
@@ -365,10 +369,8 @@ body {
     cursor: pointer;
 }
 
-#favoritos-list {
-    cursor: pointer;
-}
 
+/*CSS modal versiculo (versiculo.html)*/
 .modal {
     display: none;
     position: fixed;
@@ -398,3 +400,36 @@ body {
     cursor: pointer;
 }
 
+/*Fechamento Modal (versiculo.html)*/
+
+#btn-back-home {
+    cursor: pointer;
+    height: 30px;
+    width: 80%;
+    margin: 0 0 5px 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--text-accent);
+    color: white;
+}
+
+#favoritos-list {
+    cursor: pointer;
+    width: 10%;
+    height: 9vh;
+    text-align: center;
+    background-color: var(--bg-secondary);
+    padding: 5px;
+    -webkit-box-shadow: 8px 5px 24px -7px #000000; 
+    box-shadow: 8px 5px 24px -7px #000000;
+    transition: 0.5s;
+}
+
+#favoritos-list:hover {
+    background-color: var(--text-accent);
+    color: #000000; 
+    transform: scale(1.05); 
+    box-shadow: 10px 8px 30px -5px #000000; 
+}
+
+/*Fechamento favorites.html*/
