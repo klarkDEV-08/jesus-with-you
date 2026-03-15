@@ -1,6 +1,10 @@
 const menuTrigger = document.getElementById('menu-trigger');
 const themeBtn = document.getElementById('theme-toggle');
 const textBtn = document.getElementById('change-mode');
+const dropdown = document.getElementById('menu-dropdown');
+const backHome = document.getElementById('btn-back-home');
+
+
 
 menuTrigger.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -17,4 +21,14 @@ themeBtn.addEventListener('click', () => {
         icon.classList.replace('fa-sun', 'fa-moon');
         textBtn.innerText = 'Modo Claro';
     }
+});
+
+window.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && e.target !== menuTrigger) {
+        dropdown.classList.add('hidden');
+    }
+});
+
+backHome.addEventListener('click', () => {
+    window.location.href = "index.html";
 });
