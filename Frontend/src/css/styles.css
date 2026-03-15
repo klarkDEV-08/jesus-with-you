@@ -5,6 +5,7 @@
     --text-accent: #d4af37;
     --border-color: #333333;
     --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --button-download: #d41e2a;
 }
 
 body.light-mode {
@@ -14,6 +15,7 @@ body.light-mode {
     --text-accent: #b8860b;
     --border-color: #e0e0e0;
     --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --button-download: #d4484f;
 }
 
 body {
@@ -451,3 +453,52 @@ body {
 }
 
 /*Fechamento favorites.html*/
+
+/* Document CSS*/
+
+#content-document {
+    width: 100%;
+    height: 77.5vh;
+}
+
+#documents {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.box-document {
+    margin: 25px;
+    width: 25%;
+    background-color: var(--border-color);
+    font-size: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.box-document{
+    transition: transform 0.25s ease;
+}
+
+.box-document:hover{
+    transform: scale(1.02);
+    border: 1px solid var(--text-accent);
+    box-shadow: var(--card-shadow);
+}
+
+#download-document {
+    a {
+        text-decoration: none;
+        color: var(--text-primary);
+    }
+
+    background-color: var(--button-download);
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/*Fechamento Document CSS*/
