@@ -11,6 +11,11 @@ const favoritesBtn = document.getElementById("btn-favorites");
 const bible = document.getElementById("search-bible");
 const destinyBible = document.getElementById("books-bible");
 const boxContent = document.getElementById("box-content");
+const btnIA = document.getElementById("search-IA");
+
+btnIA.addEventListener('click', () =>{
+    window.location.href = "ChatBoxIA.html";
+})
 
 boxContent.addEventListener('click', () => {
     window.location.href = "document.html";
