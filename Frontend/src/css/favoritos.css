@@ -1,0 +1,42 @@
+#favoritos-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.favorito-item {
+    background-color: #1e1e1e;
+    border: 1px solid #c8a355;
+    border-radius: 12px;
+    width: 180px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.favorito-item:hover {
+    transform: scale(1.05);
+    background-color: #2a2a2a;
+}
+
+.favorito-item p {
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.favorito-item i {
+    display: block;
+    margin-bottom: 8px;
+    color: #c8a355;
+    font-size: 1.2rem;
+}

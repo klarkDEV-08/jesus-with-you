@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JesuWithYou</title>
+    <!--- Natural CSS --->
     <link rel="stylesheet" href="/Frontend/src/css/styles.css">
+    <!--- Home CSS --->
+    <link rel="stylesheet" href="/Frontend/src/css/chatIA.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
     <link rel="icon" type="image/png" href="/Frontend/assets/imgs/JESUS.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -46,5 +49,36 @@
             </div>
         </div>
     </div>
+     
+    <button id="btn-back"><a href="/Frontend/src/index.html">Voltar</a></button>
+    <div id="chat-container">
+        <p id="introduction-Text">Seja bem vindo ao ChatJesus!</p>
+        <p id="_responseChat"></p>
+        <div id="chat-forms">
+            <form method="POST">
+                <textarea id="text-action" placeholder="Digite sua ideia ou o que você deseja fazer" rows="1"></textarea>
+                <button id="_submitBtnChat"><i class="fa-solid fa-paper-plane"></i></button>
+
+            </form>
+        </div>
+        <div id="chat-actions">
+            <div class="box-action">
+                <button class="btn-send-action" id="action-config">
+                    <i class="fa-solid fa-sliders"></i>
+                </button>
+            </div>
+            <div class="box-action">
+                <button class="btn-send-action" id="action-bible">
+                    <i class="fa-solid fa-book-bible"></i>
+                </button>
+            </div>
+            <div class="box-action">
+                <button class="btn-send-action" id="action-ideia">
+                    <i class="fa-solid fa-pencil"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="/Frontend/src/js/ChatIA.js"></script>
 </body>
 </html>
