@@ -170,7 +170,7 @@ app.get('/api/livro-info/:livro', async (req, res) => {
 });
 
 const Groq = require("groq-sdk");
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY }); // Adicione essa chave no seu .env
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 app.post("/perguntar", async (req, res) => {
     const { pergunta } = req.body;
@@ -187,7 +187,7 @@ app.post("/perguntar", async (req, res) => {
                     content: pergunta,
                 },
             ],
-            model: "llama-3.1-8b-instant", // Modelo super rápido e estável
+            model: "llama-3.1-8b-instant",
         });
 
         const respostaIA = chatCompletion.choices[0]?.message?.content || "";
