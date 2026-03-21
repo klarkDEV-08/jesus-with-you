@@ -169,6 +169,36 @@ app.get('/api/livro-info/:livro', async (req, res) => {
     }
 });
 
+const Groq = require("groq-sdk");
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY }); // Adicione essa chave no seu .env
+
+app.post("/perguntar", async (req, res) => {
+    const { pergunta } = req.body;
+
+    try {
+        const chatCompletion = await groq.chat.completions.create({
+            messages: [
+                {
+                    role: "system",
+                    content: "Você é o ChatJesus. Responda com compaixão e sabedoria baseada na Bíblia Cristã, citando versículos."
+                },
+                {
+                    role: "user",
+                    content: pergunta,
+                },
+            ],
+            model: "llama-3.1-8b-instant", // Modelo super rápido e estável
+        });
+
+        const respostaIA = chatCompletion.choices[0]?.message?.content || "";
+        res.json({ resposta: respostaIA });
+
+    } catch (error) {
+        console.error("Erro na Groq:", error);
+        res.status(500).json({ erro: "A IA deu um erro, mas não desista!" });
+    }
+});
+
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`🚀 http://localhost:${PORT}`);
