@@ -4,7 +4,7 @@
   "description": "Backend do projeto JesuWithYou",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node Backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
