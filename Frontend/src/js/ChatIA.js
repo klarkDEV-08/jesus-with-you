@@ -5,6 +5,39 @@ const responseArea = document.getElementById('_responseChat');
 const btnCopy = document.getElementById('btn-copiar'); 
 const iconCopy = document.getElementById('toggle-copy');
 
+const themeBtn = document.getElementById('theme-toggle');
+const menuTrigger = document.getElementById('menu-trigger');
+const dropdown = document.getElementById('menu-dropdown');
+const backHome = document.getElementById('btn-back-home');
+const textBtn = document.getElementById('change-mode');
+
+menuTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('hidden');
+});
+
+window.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && e.target !== menuTrigger) {
+        dropdown.classList.add('hidden');
+    }
+});
+
+themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const icon = themeBtn.querySelector('i');
+    if (document.body.classList.contains('light-mode')) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+        textBtn.innerText = 'Modo Escuro';
+    } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+        textBtn.innerText = 'Modo Claro';
+    }
+});
+
+backHome.addEventListener('click', () => {
+    window.location.href = "index.html";
+});
+
 textarea.addEventListener('input', function() {
     this.style.height = 'auto';
     this.style.height = (this.scrollHeight) + 'px';

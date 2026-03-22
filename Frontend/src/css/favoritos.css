@@ -40,3 +40,8 @@
     color: #c8a355;
     font-size: 1.2rem;
 }
+
+#title-favorites {
+    text-align: center;
+    opacity: 0.5;
+}
